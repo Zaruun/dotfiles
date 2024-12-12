@@ -1,0 +1,12 @@
+[window]
+decorations = "None"
+
+[font]
+normal = { family = "Ubuntu Mono", style = "Regular" }
+size = 12
+
+[terminal]
+osc52 = "CopyPaste"
+
+[env]
+term = "xterm-256color"
