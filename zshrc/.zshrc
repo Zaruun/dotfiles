@@ -82,11 +82,11 @@ source $ZSH/oh-my-zsh.sh
 # export LANG=en_US.UTF-8
 
 # Preferred editor for local and remote sessions
-# if [[ -n $SSH_CONNECTION ]]; then
-#   export EDITOR='vim'
-# else
-#   export EDITOR='mvim'
-# fi
+if [[ -n $SSH_CONNECTION ]]; then
+  export EDITOR='vim'
+else
+  export EDITOR='nvim'
+fi
 
 # Compilation flags
 # export ARCHFLAGS="-arch x86_64"
@@ -99,37 +99,9 @@ source $ZSH/oh-my-zsh.sh
 # Example aliases
 # alias zshconfig="mate ~/.zshrc"
 # alias ohmyzsh="mate ~/.oh-my-zsh"
-# >>> conda initialize >>>
-# !! Contents within this block are managed by 'conda init' !!
-# __conda_setup="$('/home/zaruun/.miniconda3/bin/conda' 'shell.zsh' 'hook' 2> /dev/null)"
-# if [ $? -eq 0 ]; then
-#     eval "$__conda_setup"
-# else
-#     if [ -f "/home/zaruun/.miniconda3/etc/profile.d/conda.sh" ]; then
-#         . "/home/zaruun/.miniconda3/etc/profile.d/conda.sh"
-#     else
-#         export PATH="/home/zaruun/.miniconda3/bin:$PATH"
-#     fi
-# fi
-# unset __conda_setup
-# <<< conda initialize <<<
-
-# nvm init
-export NVM_DIR="$([ -z "${XDG_CONFIG_HOME-}" ] && printf %s "${HOME}/.nvm" || printf %s "${XDG_CONFIG_HOME}/nvm")"
-[ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh"
-
-# fzf config
-
-export FZF_DEFAULT_OPTS="--height=60% --layout=reverse --info=inline --preview 'cat {}' --border --margin=1 --padding=1"
-
-
 
 # ALSIAS
 alias n="nvim"
-alias nssh="sh ~/.config/scripts/nvim-sshfs/nvim-sshfs.sh"
-alias r="ranger"
-alias rssh="sh ~/.config/scripts/ranger-sshfs/ranger-sshfs.sh"
-alias ytd="python3 ~/.config/scripts/yt-download/yt-download.py"
 alias cat="batcat"
 alias open="wslview"
 alias ls="lsd"
@@ -137,28 +109,11 @@ alias ll="lsd -la"
 alias tree="lsd --tree"
 
 # FUNCTIONS
-updater() {
-  p=$(pwd)
-  if [ -n "$1" ]; then
-      case "$1" in
-          -t)
-              if [ -n "$2" ]; then
-                  #script_path_to_replace -t "$2"
-              else
-                  echo "Please specify a tag. ( core / scripts / nvim / zsh )"
-              fi
-              ;;
-          *)
-              echo "Invalid tag: $1"
-              ;;
-      esac
-  else
-      #script_path_to_replace 
-  fi
-  cd $p
-}
 
-# eval "$(zoxide init zsh)"
+# CONFIGS
+
+# fzf config
+export FZF_DEFAULT_OPTS="--height=60% --layout=reverse --info=inline --preview 'cat {}' --border --margin=1 --padding=1"
 
 # disable hightlight colors in wsl folders 
 LS_COLORS=$LS_COLORS:'ow=1;34:' ; export LS_COLORS
