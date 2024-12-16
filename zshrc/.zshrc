@@ -70,7 +70,7 @@ ZSH_THEME="bureau"
 # Custom plugins may be added to $ZSH_CUSTOM/plugins/
 # Example format: plugins=(rails git textmate ruby lighthouse)
 # Add wisely, as too many plugins slow down shell startup.
-plugins=(git fzf)
+plugins=(git fzf asdf zoxide)
 
 source $ZSH/oh-my-zsh.sh
 
@@ -158,7 +158,7 @@ updater() {
   cd $p
 }
 
-eval "$(zoxide init zsh)"
+# eval "$(zoxide init zsh)"
 
 # disable hightlight colors in wsl folders 
 LS_COLORS=$LS_COLORS:'ow=1;34:' ; export LS_COLORS
